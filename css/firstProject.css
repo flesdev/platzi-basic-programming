@@ -49,46 +49,6 @@ html {
     align-items: center;
     color: var(--text-white);
 }
-.main h1 {
-    font-size: 3rem;
-    letter-spacing: 1px;
-}
-.main p {
-    margin-top: 20px;
-    max-width: 700px;
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-}
-.main section {
-    width: 80%;
-    display: flex;
-    flex-wrap: wrap;
-}
-.main section a {
-    margin: 0 auto;
-}
-.main section a div {
-    background: rgba(255, 255, 255,0.4);
-    width: 160px;
-    height: 140px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    transition: 450ms;
-}
-.main section a div:hover {
-    transform: scale(1.4);
-}
-.main section a div p {
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    max-width: 120px;
-}
-.main section a div img {
-    width: 50px;
-}
 
 /* ============== FOOTER ============= */
 
