@@ -1,38 +1,103 @@
+/* ================= Variables de Fondo ================= */
+
 var vp = document.getElementById('villaplatzi');
 var papel = vp.getContext('2d');
-var mapa = './assets/tile.png';
 
-var fondo = new Image();
-fondo.src = mapa;
-fondo.addEventListener('load', dibujar);
+/* ================= Imagenes ================= */
 
-var vaca = new Image();
-vaca.src = './assets/vaca.png';
-vaca.addEventListener('load', dibujarVacas);
+var fondo = {
+    url: './assets/tile.png',
+    cargaOK: false,
+}
+var vaca = {
+    url: './assets/vaca.png',
+    cargaOK: false,
+}
+var cerdo = {
+    url: './assets/cerdo.png',
+    cargaOK: false,
+}
+var pollo = {
+    url: './assets/pollo.png',
+    cargaOK: false,
+}
 
-var pollo = new Image();
-pollo.src = './assets/pollo.png';
-pollo.addEventListener('load', dibujarPollos);
+/* ==================================================================== */
 
-var cerdo = new Image();
-cerdo.src = './assets/cerdo.png';
-cerdo.addEventListener('load', dibujarCerdos);
+fondo.imagen = new Image();
+fondo.imagen.src = fondo.url;
+fondo.imagen.addEventListener('load', cargarFondo);
+
+vaca.imagen = new Image();
+vaca.imagen.src = './assets/vaca.png';
+vaca.imagen.addEventListener('load', cargarVacas);
+
+pollo.imagen = new Image();
+pollo.imagen.src = './assets/pollo.png';
+pollo.imagen.addEventListener('load', cargarPollos);
+
+cerdo.imagen = new Image();
+cerdo.imagen.src = './assets/cerdo.png';
+cerdo.imagen.addEventListener('load', cargarCerdos);
+
+/* ================= Funciones para esperar el true ================= */
+
+function cargarFondo() {
+    fondo.cargaOK = true;
+    dibujar();
+}
+function cargarVacas() {
+    vaca.cargaOK = true;
+    dibujar();
+}
+function cargarCerdos() {
+    cerdo.cargaOK = true;
+    dibujar();
+}
+function cargarPollos() {
+    pollo.cargaOK = true;
+    dibujar();
+}
+
+/* ================= Funciones para esperar el true ================= */
 
 function dibujar() {
-    papel.drawImage(fondo, 0, 0);
+    if (fondo.cargaOK) {
+        papel.drawImage(fondo.imagen, 0, 0);
+    }
+    if (vaca.cargaOK) {
+        var cantidad = aleatorio(3, 6);
+        for (let v = 0; v < cantidad; v++) {
+            var x = aleatorio(0, 5);
+            var y = aleatorio(0, 5);
+            x = x * 80;
+            y = y * 80;
+            papel.drawImage(vaca.imagen, x, y);
+        }
+    }
+    if (pollo.cargaOK) {
+        var cantidad = aleatorio(3, 6);
+        for (let v = 0; v < cantidad; v++) {
+            var x = aleatorio(0, 5);
+            var y = aleatorio(0, 5);
+            x = x * 80;
+            y = y * 80;
+            papel.drawImage(pollo.imagen, x, y);
+        }
+    }
+    if (cerdo.cargaOK) {
+        var cantidad = aleatorio(3, 6);
+        for (let v = 0; v < cantidad; v++) {
+            var x = aleatorio(0, 5);
+            var y = aleatorio(0, 5);
+            x = x * 80;
+            y = y * 80;
+            papel.drawImage(cerdo.imagen, x, y);
+        }
+    }
 }
 
-function dibujarVacas() {
-    papel.drawImage(vaca, 10, 10);
-}
-
-function dibujarPollos() {
-    papel.drawImage(pollo, 10, 300);
-}
-
-function dibujarCerdos() {
-    papel.drawImage(cerdo, 300, 150);
-}
+/* ====================== Funcion Aleatorio ============================ */
 
 function aleatorio(min, max) {
     var resultado;
@@ -40,9 +105,9 @@ function aleatorio(min, max) {
     return resultado;
 }
 
-var z;
+/* ====================================================================== */
 
-for (let i = 0; i < 10; i++) {
-    z = aleatorio(10, 20);
-    document.write(z + ', ');   
-}
+console.log(fondo.imagen);
+console.log(vaca);
+console.log(cerdo);
+console.log(pollo);
