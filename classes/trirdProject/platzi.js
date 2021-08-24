@@ -3,6 +3,33 @@
 var vp = document.getElementById('villaplatzi');
 var papel = vp.getContext('2d');
 
+/* ================= Escuchador de eventos ================= */
+
+document.addEventListener('keyup', moverCerdo);
+
+function moverCerdo(teclitas) {
+    if (teclitas.keyCode == teclas.UP) {
+        
+    } else if (teclitas.keyCode == teclas.RIGHT) {
+
+    } else if (teclitas.keyCode == teclas.DOWN) {
+
+    } else if (teclitas.keyCode == teclas.LEFT) {
+
+    } else {
+        alert('Use the arrows to move the pig')
+    }
+}
+
+/* ================= TECLAS ================= */
+
+var teclas = {
+    LEFT: 37,
+    UP: 38,
+    RIGHT: 39,
+    DOWN: 40
+};
+
 /* ================= Imagenes ================= */
 
 var fondo = {
@@ -105,9 +132,4 @@ function aleatorio(min, max) {
     return resultado;
 }
 
-/* ====================================================================== */
-
-console.log(fondo.imagen);
-console.log(vaca);
-console.log(cerdo);
-console.log(pollo);
+/* ====================== Final ======================== */
